@@ -1,0 +1,14 @@
+{
+    "name": "clearswitch/dataconversion",
+    "description": "data conversion",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "daikai",
+            "email": "903221818@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
