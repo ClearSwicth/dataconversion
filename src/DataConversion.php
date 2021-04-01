@@ -6,6 +6,11 @@
  */
  namespace ClearsWitch\DataConversion;
  use ClearSwitch\DataType\BaseType;
+
+ /**
+  * Class DataConversion
+  * @package ClearsWitch\DataConversion
+  */
 class DataConversion
 {
     /**

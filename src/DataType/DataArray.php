@@ -8,6 +8,8 @@
 namespace ClearsWitch\DataConversion\DataType;
 
 
+use ClearsWitch\DataConversion\DataConversion;
+
 class DataArray implements BaseType
 {
    public function Conversion(DataConversion $data)

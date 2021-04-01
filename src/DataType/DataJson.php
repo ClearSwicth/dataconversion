@@ -8,7 +8,7 @@
 namespace ClearsWitch\DataConversion\DataType;
 
 
-use ClearSwitch\Conversion\DataConversion;
+use ClearsWitch\DataConversion\DataConversion;
 
 class DataJson implements BaseType
 {
