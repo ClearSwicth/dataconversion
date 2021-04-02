@@ -14,7 +14,7 @@ use ClearsWitch\DataConversion\DataConversion;
 interface BaseType
 {
     /**
-     *
+     * Date: 2021/4/1 6:08 下午
      * @param DataConversion $data
      * @return mixed
      * @author daikai

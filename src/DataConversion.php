@@ -5,7 +5,7 @@
  * Date: 2021/4/1
  */
  namespace ClearsWitch\DataConversion;
- use ClearSwitch\DataType\BaseType;
+ use ClearsWitch\DataConversion\DataType\BaseType;
 
  /**
   * Class DataConversion
@@ -22,20 +22,20 @@ class DataConversion
     /**
      * @var
      */
-    private $data;
+    public $data;
 
     /**
      * 传进来数据的类型
      * @var
      */
-    private $requestDataType;
+    public $requestDataType;
     /**
      * @var array
      */
     private $dataClass=[
-        'json'=>'ClearSwitch\DataType\DataJson',
-        'array'=>'ClearSwitch\DataType\DataArray',
-        'xml'=>'ClearSwitch\DataType\DataXml',
+        'json'=>'ClearsWitch\DataConversion\DataType\DataJson',
+        'array'=>'ClearsWitch\DataConversion\DataType\DataArray',
+        'xml'=>'ClearsWitch\DataConversion\DataType\DataXml',
     ];
 
     /**
@@ -53,7 +53,8 @@ class DataConversion
        $this->data=$data;
        $this->type=strtolower($type);
        $this->prepare();
-       $this->conversiontype()->Conversion();
+
+       return $this->conversiontype()->Conversion($this);
     }
 
     /**
@@ -62,6 +63,7 @@ class DataConversion
      * @author daikai
      */
     public function prepare(){
+       //print_R(simplexml_load_string($this->data));exit;
         switch ($this->data){
             case(is_array($this->data)):
                 $this->requestDataType='array';
@@ -69,7 +71,7 @@ class DataConversion
             case(!empty(json_decode($this->data))):
                 $this->requestDataType='josn';
                 break;
-            case(simplexml_load_string($this->data)):
+            case(!empty(@simplexml_load_string($this->data))):
                 $this->requestDataType='xml';
                 break;
             default:
@@ -77,19 +79,17 @@ class DataConversion
                 break;
         }
         if(!isset($this->dataClass[$this->type])){
-            return false;
+           echo  '暂只支持数组，xml,json 的转换';exit;
         }
     }
 
     /**
-     * Date: 2021/4/1 3:22 下午
-     * @return mixed
+     * Date: 2021/4/1 6:21 下午
+     * @return BaseType
      * @author daikai
      */
-    public function conversiontype(){
-        //$this->useClass=new $this->dataClass[$this->type]();
-        //return $this;
-        return new $this->dataClass[$this->type]();
+    public function conversiontype(...$args){
+        return new $this->dataClass[$this->type]([], ...$args);
     }
     /**
      *统一返回的格式
