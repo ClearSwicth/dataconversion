@@ -25,7 +25,7 @@ class DataArray implements BaseType
     public function prepare($data){
         switch ($data->requestDataType){
             case "json":
-                $data->data=json_decode($data->data);
+                $data->data=json_decode($data->data,true);
                 break;
             case "xml":
                 $data->data=json_decode(json_encode(simplexml_load_string($data->data),JSON_UNESCAPED_UNICODE),true);
