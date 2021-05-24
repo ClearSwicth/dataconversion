@@ -18,7 +18,7 @@ class DataJson implements BaseType
         return $data->data;
     }
     /**
-     * Date: 2021/4/2 9:35 上午
+     * 都转为数组
      * @param $data
      * @author daikai
      */
@@ -31,7 +31,7 @@ class DataJson implements BaseType
               $data->data=json_encode(simplexml_load_string($data->data),JSON_UNESCAPED_UNICODE);
                 break;
             case "array":
-                $data->data=$data->data;
+                $data->data=json_encode($data->data,JSON_UNESCAPED_UNICODE);
                 break;
             default :
                 $data->data='暂只支持数组，xml,json 的转换';
