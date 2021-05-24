@@ -69,7 +69,7 @@ class DataConversion
                 $this->requestDataType='array';
                 break;
             case(!empty(json_decode($this->data))):
-                $this->requestDataType='josn';
+                $this->requestDataType='json';
                 break;
             case(!empty(@simplexml_load_string($this->data))):
                 $this->requestDataType='xml';
