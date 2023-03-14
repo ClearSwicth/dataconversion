@@ -11,7 +11,7 @@ use ClearSwitch\DoraemonIoc\Container;
 
 /**
  * Class DataConversion
- * @package ClearsWitch\DataConversion
+ * @package ClearSwitch\DataConversion
  */
 class DataConversion
 {
@@ -35,9 +35,9 @@ class DataConversion
      * @var array
      */
     private $dataClass = [
-        'json' => 'ClearsWitch\DataConversion\DataType\DataJson',
-        'array' => 'ClearsWitch\DataConversion\DataType\DataArray',
-        'xml' => 'ClearsWitch\DataConversion\DataType\DataXml',
+        'json' => 'ClearSwitch\DataConversion\DataType\DataJson',
+        'array' => 'ClearSwitch\DataConversion\DataType\DataArray',
+        'xml' => 'ClearSwitch\DataConversion\DataType\DataXml',
     ];
     /**
      * 服务容器
@@ -52,9 +52,9 @@ class DataConversion
     public function __construct()
     {
         $this->Container = new Container();
-        $this->Container->bind('json', 'ClearsWitch\DataConversion\DataType\DataJson');
-        $this->Container->bind('array', 'ClearsWitch\DataConversion\DataType\DataArray');
-        $this->Container->bind('xml', 'ClearsWitch\DataConversion\DataType\DataXml');
+        $this->Container->bind('json', 'ClearSwitch\DataConversion\DataType\DataJson');
+        $this->Container->bind('array', 'ClearSwitch\DataConversion\DataType\DataArray');
+        $this->Container->bind('xml', 'ClearSwitch\DataConversion\DataType\DataXml');
     }
 
     /**
@@ -78,7 +78,7 @@ class DataConversion
     /**
      * Date: 2023/3/14 下午12:19
      * @throws \Exception
-     * @author clearSwitch
+     * @author ClearSwitch
      */
     public function prepare()
     {

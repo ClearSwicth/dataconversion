@@ -7,7 +7,7 @@
 
 namespace ClearSwitch\DataConversion\DataType;
 
-use ClearsWitch\DataConversion\DataConversion;
+use ClearSwitch\DataConversion\DataConversion;
 class DataXml implements BaseType
 {
 
