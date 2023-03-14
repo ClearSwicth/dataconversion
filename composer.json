@@ -10,7 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "clearswitch/doraemon-ioc":"^0.0.1"
+    },
     "autoload": {
         "psr-4": {"ClearsWitch\\DataConversion\\": "src"}
     }
