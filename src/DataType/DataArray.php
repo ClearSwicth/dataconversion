@@ -5,10 +5,10 @@
  * Date: 2021/4/1
  */
 
-namespace ClearsWitch\DataConversion\DataType;
+namespace ClearSwitch\DataConversion\DataType;
 
 
-use ClearsWitch\DataConversion\DataConversion;
+use ClearSwitch\DataConversion\DataConversion;
 
 class DataArray implements BaseType
 {
