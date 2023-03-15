@@ -34,7 +34,8 @@ class DataJson implements BaseType
                 $data->data=json_encode($data->data,JSON_UNESCAPED_UNICODE);
                 break;
             default :
-                $data->data='暂只支持数组，xml,json 的转换';
+                throw new \Exception("暂时只支持array,json,xml的转换");
+                break;
         }
     }
 }

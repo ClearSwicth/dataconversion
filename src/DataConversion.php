@@ -32,14 +32,6 @@ class DataConversion
      */
     public $requestDataType;
     /**
-     * @var array
-     */
-    private $dataClass = [
-        'json' => 'ClearSwitch\DataConversion\DataType\DataJson',
-        'array' => 'ClearSwitch\DataConversion\DataType\DataArray',
-        'xml' => 'ClearSwitch\DataConversion\DataType\DataXml',
-    ];
-    /**
      * 服务容器
      * @var
      */
@@ -71,7 +63,7 @@ class DataConversion
         try {
             return $this->Container->make($this->type)->Conversion($this);
         } catch (\Exception $re) {
-            return "暂时只支持转换成array,json,xml的格式";
+            throw new \Exception("暂时只支持array,json,xml,urlencoded的转换");
         }
     }
 
