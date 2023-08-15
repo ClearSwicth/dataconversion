@@ -43,10 +43,9 @@ class DataConversion
 
     public function __construct()
     {
-        $this->Container = new Container();
-        $this->Container->bind('json', 'ClearSwitch\DataConversion\DataType\DataJson');
-        $this->Container->bind('array', 'ClearSwitch\DataConversion\DataType\DataArray');
-        $this->Container->bind('xml', 'ClearSwitch\DataConversion\DataType\DataXml');
+        Container::bind('json', 'ClearSwitch\DataConversion\DataType\DataJson');
+        Container::bind('array', 'ClearSwitch\DataConversion\DataType\DataArray');
+        Container::bind('xml', 'ClearSwitch\DataConversion\DataType\DataXml');
     }
 
     /**
@@ -61,7 +60,7 @@ class DataConversion
         $this->type = strtolower($type);
         $this->prepare();
         try {
-            return $this->Container->make($this->type)->Conversion($this);
+            return Container::make($this->type)->Conversion($this);
         } catch (\Exception $re) {
             throw new \Exception("暂时只支持array,json,xml,urlencoded的转换");
         }
