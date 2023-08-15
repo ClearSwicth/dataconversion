@@ -8,6 +8,7 @@
 namespace ClearSwitch\DataConversion;
 
 use ClearSwitch\DoraemonIoc\Container;
+use function Doctrine\Common\Cache\Psr6\get;
 
 /**
  * Class DataConversion
@@ -73,15 +74,18 @@ class DataConversion
      */
     public function prepare()
     {
-        switch ($this->data) {
-            case(is_array($this->data)):
+        switch (gettype($this->data)) {
+            case "array":
                 $this->requestDataType = 'array';
                 break;
-            case(!empty(json_decode($this->data))):
-                $this->requestDataType = 'json';
-                break;
-            case(!empty(@simplexml_load_string($this->data))):
-                $this->requestDataType = 'xml';
+            case "string":
+                if (!empty(json_decode($this->data))) {
+                    $this->requestDataType = 'json';
+                } elseif (!empty(@simplexml_load_string($this->data))) {
+                    $this->requestDataType = 'xml';
+                } else {
+                    throw new \Exception("暂时只支持array,json,xml的转换");
+                }
                 break;
             default:
                 throw new \Exception("暂时只支持array,json,xml的转换");
